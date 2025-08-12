@@ -1,3 +1,3 @@
-library google_analytics_methods;
+library;
 
 export './ga_methods.dart';

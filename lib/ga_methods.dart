@@ -10,26 +10,26 @@ class AnalyticsClass {
   }
 
   AnalyticsClass._internal();
-  setUser([String? id, role]) async {
+  Future<void> setUser([String? id, role]) async {
     await fa.setUserId(id: id);
     // if (role != null) {
     await fa.setUserProperty(name: 'Role', value: role);
     // }
   }
 
-  logCustomEvent(String eventName, [Map<String, Object?>? param]) async {
+  Future<void> logCustomEvent(String eventName, [Map<String, Object>? param]) async {
     await fa.logEvent(name: eventName, parameters: param);
   }
 
-  logSessionTimeout(String eventName, [Map<String, Object?>? param]) {
+  void logSessionTimeout(String eventName, [Map<String, Object>? param]) {
     fa.logEvent(name: eventName, parameters: param);
   }
 
-  signupEvent(String signUpMethod) async {
+  Future<void> signupEvent(String signUpMethod) async {
     await fa.logSignUp(signUpMethod: signUpMethod);
   }
 
-  loginEvent(String loginMethod) async {
+  Future<void> loginEvent(String loginMethod) async {
     await fa.logLogin(loginMethod: loginMethod);
   }
 }
